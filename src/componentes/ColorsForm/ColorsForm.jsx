@@ -18,7 +18,7 @@ const ColorsForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="w-50 mx-auto">
+      <form onSubmit={handleSubmit} className="w-50 mx-auto mb-4">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
@@ -37,7 +37,9 @@ const ColorsForm = () => {
         </button>
       </form>
       <div>
-        <ColorsCards className="mt-5" />
+        {colores.map((color, i) => {
+          return <ColorsCards key={i} color={color} colores={colores} setColores={setColor} />;
+        })}
       </div>
     </>
   );
