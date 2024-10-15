@@ -4,8 +4,7 @@ import Swal from "sweetalert2";
 const ColorsCards = (props) => {
   const { color, colores, setColores } = props;
   const deleteColor = () => {
-    console.log(colores);
-    console.log(color);
+
     Swal.fire({
       title: "Atencion",
       text: `Estas por eliminar ${color}.¿Estas seguro que deseas eliminarlo?`,
