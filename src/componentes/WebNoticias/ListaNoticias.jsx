@@ -5,8 +5,8 @@ const ListaNoticias = (props) => {
   const { noticias } = props;
 
   return (
-    <div>
-      <h1>Lista de noticias</h1>
+    <article>
+      <h2>Lista de noticias</h2>
 
       <hr />
       <div className="row g-2">
@@ -18,7 +18,7 @@ const ListaNoticias = (props) => {
           <p>No hay noticias disponibles.</p>
         )}
       </div>
-    </div>
+    </article>
   );
 };
 
