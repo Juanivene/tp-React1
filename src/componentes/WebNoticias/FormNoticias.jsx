@@ -4,6 +4,7 @@ import ListaNoticias from "./ListaNoticias";
 const FormNoticias = () => {
   const [noticias, setNoticias] = useState([]);
   const $selectNoticias = useRef();
+  const $inputTitulo = useRef();
 
   const selectUrl = () => {
     let url;
@@ -25,24 +26,32 @@ const FormNoticias = () => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setNoticias(data);
+      setNoticias(data.articles);
     } catch (error) {
       console.error(error);
     }
   };
 
+  const handleChange = async () => {
+    await fetchNoticias(selectUrl());
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetchNoticias(selectUrl());
-  };
-  const oc = () => {
-    console.log(noticias);
+
+    let tituloBusqueda = $inputTitulo.current.value;
+    await fetchNoticias(selectUrl());
+
+    const filterNoticias = noticias.filter((noticia) => {
+      return noticia.title.toLowerCase().includes(tituloBusqueda.toLowerCase());
+    });
+
+    setNoticias(filterNoticias);
   };
 
   return (
     <article>
       <form
-        onSubmit={handleSubmit}
         className="border p-4 rounded mx-auto"
         style={{ maxwidth: `300px` }}
       >
@@ -50,6 +59,7 @@ const FormNoticias = () => {
           Buscar por categorías:
         </label>
         <select
+          onChange={handleChange}
           className="form-select"
           id="categorySelect"
           aria-label="Default select example"
@@ -60,12 +70,26 @@ const FormNoticias = () => {
           <option value="2">Bitcoin </option>
           <option value="3">TechCrunch </option>
         </select>
-
-        <button type="submit" className="btn btn-primary">
-          Buscar
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label mt-2">
+            Buscar por titulo
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            ref={$inputTitulo}
+          />
+        </div>
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="btn btn-primary"
+        >
+          buscar
         </button>
       </form>
-      <button onClick={oc}></button>
 
       {noticias.length === 0 ? (
         <h1>...</h1>
