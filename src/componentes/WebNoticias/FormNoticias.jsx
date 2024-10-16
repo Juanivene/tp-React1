@@ -31,9 +31,12 @@ const FormNoticias = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     fetchNoticias(selectUrl());
+  };
+  const oc = () => {
+    console.log(noticias);
   };
 
   return (
@@ -62,6 +65,7 @@ const FormNoticias = () => {
           Buscar
         </button>
       </form>
+      <button onClick={oc}></button>
 
       {noticias.length === 0 ? (
         <h1>...</h1>

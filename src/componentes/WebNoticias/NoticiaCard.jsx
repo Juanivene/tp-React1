@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const NoticiaCard = (props) => {
   const { noticia } = props;
   return (
-    // card col-12 col-md-4 p-2
+
     <div
       className="card my-3 shadow-lg " 
       style={{ maxWidth: "500px", margin: "auto" }}

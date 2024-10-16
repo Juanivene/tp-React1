@@ -6,11 +6,7 @@ import NoticiaCard from "./NoticiaCard";
 
 const ListaNoticias = (props) => {
   const { noticias } = props;
-  const oc = () => {
-    return noticias.articles.map((noticia, i) => {
-      console.log(i, noticia);
-    });
-  };
+
   return (
     <div>
       <h1>Lista de noticias</h1>
@@ -24,7 +20,6 @@ const ListaNoticias = (props) => {
           <p>No hay noticias disponibles.</p>
         )}
       </div>
-      <button onClick={oc}></button>
     </div>
   );
 };
