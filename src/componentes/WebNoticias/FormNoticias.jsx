@@ -5,19 +5,20 @@ const FormNoticias = () => {
   const [noticias, setNoticias] = useState([]);
   const $selectNews = useRef();
   const $inputTitle = useRef();
+  const API = import.meta.env.VITE_API_NOTICIAS;
 
   const selectUrl = () => {
     let url;
     switch ($selectNews.current.value) {
       case "1":
-        url = ` https://newsapi.org/v2/everything?q=apple&from=2024-10-15&to=2024-10-15&sortBy=popularity&apiKey=41a9625590cb4cae9698429cadca2408`;
+        url = ` https://newsapi.org/v2/everything?q=apple&from=2024-10-15&to=2024-10-15&sortBy=popularity&apiKey=${API}`;
         return url;
 
       case "2":
-        url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=41a9625590cb4cae9698429cadca2408`;
+        url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${API}`;
         return url;
       case "3":
-        url = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=41a9625590cb4cae9698429cadca2408`;
+        url = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${API}`;
         return url;
     }
   };
