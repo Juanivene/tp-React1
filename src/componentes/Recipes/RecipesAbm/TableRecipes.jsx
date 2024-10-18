@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import RowTableRecipes from "./RowTableRecipes";
 
 const TableRecipes = (props) => {
   const { recipes, setRecipes } = props;
@@ -43,31 +44,12 @@ const TableRecipes = (props) => {
       <tbody>
         {recipes.map((recipe, i) => {
           return (
-            <tr key={recipe.id}>
-              <td>{i}</td>
-              <td>{recipe.title}</td>
-              <td>
-                <img
-                  src={recipe.imagen}
-                  alt={recipe.title}
-                  style={{ width: "100px" }}
-                />
-              </td>
-              <td>{recipe.content}</td>
-              <td>
-                {" "}
-                <button
-                  onClick={() => deleteRecipes(recipe, recipe.id)}
-                  type="button"
-                  className="btn btn-danger btn-sm"
-                >
-                  Eliminar
-                </button>{" "}
-                <button type="button" className="btn  btn-primary btn-sm">
-                  Editar
-                </button>
-              </td>
-            </tr>
+            <RowTableRecipes
+              key={recipe.id}
+              recipe={recipe}
+              i={i}
+              deleteRecipes={deleteRecipes}
+            />
           );
         })}
       </tbody>

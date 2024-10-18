@@ -1,6 +1,7 @@
-import FormRecipes from "../../componentes/Recipes/FormRecipes";
-import TableRecipes from "../../componentes/Recipes/TableRecipes";
 import { useEffect, useState } from "react";
+
+import TableRecipes from "../../componentes/Recipes/RecipesAbm/TableRecipes";
+import FormRecipes from "../../componentes/Recipes/RecipesAbm/FormRecipes";
 
 const ViewRecipesAbm = () => {
   const recipesLs = JSON.parse(localStorage.getItem("recipes")) || [];
