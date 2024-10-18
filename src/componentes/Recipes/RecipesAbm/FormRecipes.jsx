@@ -12,7 +12,6 @@ const FormRecipes = (props) => {
     reset,
     formState: { errors },
     handleSubmit: onSubmitRHF,
-    setValue,
   } = useForm();
 
   const handleSubmit = (data) => {
@@ -30,7 +29,6 @@ const FormRecipes = (props) => {
   };
 
   const editRecipes = () => {
-    setValue("title", recipe.title);
     console.log(imagen);
     console.log(content);
   };

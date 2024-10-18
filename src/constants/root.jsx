@@ -7,6 +7,8 @@ import ViewEmpleadoList from "../views/ViewEmpleadoList";
 import ViewFormularioSimple from "../views/ViewFormularioSimple";
 import ViewFormVeterinaria from "../views/ViewFormVeterinaria";
 import ViewWeatherApp from "../views/ViewWeatherApp";
+import ViewRecipes from "../views/Recipes/ViewRecipes";
+import ViewRecipesAbm from "../views/Recipes/ViewRecipesAbm";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ export const router = createBrowserRouter([
       {
         path: "clima",
         element: <ViewWeatherApp />,
+      },
+      {
+        path: "recetas",
+        element: <ViewRecipesAbm />,
+      },
+      {
+        path: "recetas/view",
+        element: <ViewRecipes />,
       },
     ],
   },
